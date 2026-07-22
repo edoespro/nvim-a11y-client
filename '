@@ -1,0 +1,70 @@
+# uirender.py
+from uievents import UIEvents
+
+class UIRender:
+    """
+    Almacena la información de posicionamiento de ventanas y mensajes,
+    y se encarga de la composición final de la pantalla (renderizado por capas).
+    """
+
+    def __init__(self):
+        #self._ui = UIEvents()                   # singleton
+        #self.win_positions: dict[int, tuple] = {}    # grid_id -> (start_row, start_col, width, height)
+        #self.win_viewports: dict[int, list] = {}     # grid_id -> datos crudos del viewport
+        #self.msg_grid_info: dict = None              # información del grid de mensajes
+
+        #self._register_handlers()
+        pass
+
+#    def _register_handlers(self):
+#        handlers = {
+#            'win_pos':          self._handle_win_pos,
+#            'win_viewport':     self._handle_win_viewport,
+#            'msg_set_pos':      self._handle_msg_set_pos
+#        }
+#        #for event, handler in handlers.items():
+#            #self._ui.register_handler(event, handler)
+#
+#
+#    def _handle_win_pos(self, event):
+#        """win_pos: ['win_pos', [grid, win, start_row, start_col, width, height]]"""
+#        grid_id, win, start_row, start_col, width, height = event[1]
+#        self.win_positions[grid_id] = (start_row, start_col, width, height)
+#        # Importante: no redimensionamos grids aquí, solo guardamos la posición.
+#        # La redimensión del grid correspondiente la hace NvimMultigrid cuando
+#        # recibe el grid_resize asociado (o se crea bajo demanda).
+#
+#    def _handle_win_viewport(self, event):
+#        """win_viewport: ['win_viewport', [grid, ...]]"""
+#        parts = event[1]
+#        grid_id = parts[0]
+#        self.win_viewports[grid_id] = parts
+#
+#    def _handle_msg_set_pos(self, event):
+#        """
+#        msg_set_pos: ['msg_set_pos', grid, row, scrolled, sep_char, zindex, compindex]
+#        Guarda la información de anclaje y apilamiento del grid de mensajes.
+#        """
+#        # Desempaquetamos según el nuevo formato
+#        grid_id, row, scrolled, sep_char, zindex, compindex = event[1]
+#        self.msg_grid_info = {
+#            'grid': grid_id,
+#            'row': row,
+#            'scrolled': scrolled,
+#            'sep_char': sep_char,
+#            'zindex': zindex,
+#            'compindex': compindex
+ #       }
+
+
+    def render_screen(self, grid_state):
+        """
+        Composición por capas. A implementar más adelante.
+        Recibe el diccionario de grids (grid_id -> NvimGrid) mantenido por NvimMultigrid.
+        """
+        # TODO: implementar la lógica de capas usando:
+        # - grid_state (para contenido de celdas)
+        # - self.win_positions
+        # - self.msg_grid_info
+        pass
+        #print(f"se renderiza la pantalla")
